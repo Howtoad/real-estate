@@ -1,22 +1,30 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 const HeaderNav = () => {
   const styles = {
     headerLink: "text-lg text-paragraph",
   };
   return (
-    <div>
-      <div>
+    <div className="flex w-full h-36 place-content-center">
+      <div className="flex max-w-[1100px] place-self-center w-full">
         <div>
           <img
             src="/images\real-estate\logo.png"
             alt="Image of the company logo"
           ></img>
         </div>
-        <div>
-          <Link to="/sales">boliger til salg</Link>
-          <Link to="/realtors">mæglere</Link>
-          <Link to="/favorites">mine favoritter</Link>
-          <Link to="/contact">kontakt os</Link>
+        <div className="ml-auto place-self-end flex space-x-10">
+          <NavLink to="/sales" className={styles.headerLink}>
+            Boliger til salg
+          </NavLink>
+          <NavLink to="/realtors" className={styles.headerLink}>
+            Mæglere
+          </NavLink>
+          <NavLink to="/favorites" className={styles.headerLink}>
+            Mine favoritter
+          </NavLink>
+          <NavLink to="/contact" className={styles.headerLink}>
+            Kontakt os
+          </NavLink>
         </div>
       </div>
     </div>
