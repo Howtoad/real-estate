@@ -1,9 +1,10 @@
 import { Outlet } from "react-router-dom";
+import Header from "./views/Header";
 
 function App() {
   return (
     <div className="App">
-      {/* <Header/> */}
+      <Header />
       <Outlet />
       {/* <Footer/> */}
     </div>
