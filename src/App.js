@@ -1,12 +1,12 @@
-import "./App.css";
-import HeaderInfo from "./components/HeaderInfo";
-import HeaderNav from "./components/HeaderNav";
+import { Outlet } from "react-router-dom";
+import Header from "./views/Header";
 
 function App() {
   return (
     <div className="App">
-      <HeaderInfo />
-      <HeaderNav />
+      <Header />
+      <Outlet />
+      {/* <Footer/> */}
     </div>
   );
 }
