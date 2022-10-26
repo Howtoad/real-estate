@@ -1,11 +1,11 @@
 import HeroImg from "../templates/HeroImg";
-import SelectedHomes from "../templates/SelectedHomes";
+import SelectedProperties from "../templates/SelectedProperties";
 
 const Home = () => {
   return (
     <>
       <HeroImg />
-      <SelectedHomes />
+      <SelectedProperties />
     </>
   );
 };
