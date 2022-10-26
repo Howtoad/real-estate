@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function PropertyCard({ data: property, showLiked }) {
   const switchEnergylabelColor = () => {
@@ -16,8 +17,13 @@ function PropertyCard({ data: property, showLiked }) {
     }
   };
 
+  console.log(property);
+
   return (
-    <div className="bg-white rounded-md overflow-hidden shadow relative">
+    <Link
+      className="bg-white rounded-md overflow-hidden shadow relative"
+      to={`/boliger/${property.id}`}
+    >
       <img src={property.images[0].url} alt="" />
       {showLiked && (
         <div className="absolute top-6 right-6 bg-white w-10 h-10 rounded-full flex items-center justify-center">
@@ -64,7 +70,7 @@ function PropertyCard({ data: property, showLiked }) {
           </p>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
 
