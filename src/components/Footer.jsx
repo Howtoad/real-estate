@@ -15,7 +15,7 @@ function Footer() {
         <div className="h-full col-span-full row-span-full w-full max-w-[750px] m-auto p-14 md:py-14">
           <img
             className="pb-10"
-            src="./images/real-estate/logo.png"
+            src="../images/real-estate/logo.png"
             alt="Din Mægler logo"
             title="Din Mægler logo"
           />
