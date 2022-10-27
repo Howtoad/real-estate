@@ -13,16 +13,16 @@ const HeaderNav = () => {
           ></img>
         </div>
         <div className="ml-auto place-self-end flex space-x-10">
-          <NavLink to="/sales" className={styles.headerLink}>
+          <NavLink to="/boliger" className={styles.headerLink}>
             Boliger til salg
           </NavLink>
-          <NavLink to="/realtors" className={styles.headerLink}>
+          <NavLink to="/maeglere" className={styles.headerLink}>
             Mæglere
           </NavLink>
-          <NavLink to="/favorites" className={styles.headerLink}>
+          <NavLink to="/favoritter" className={styles.headerLink}>
             Mine favoritter
           </NavLink>
-          <NavLink to="/contact" className={styles.headerLink}>
+          <NavLink to="/kontakt" className={styles.headerLink}>
             Kontakt os
           </NavLink>
         </div>
