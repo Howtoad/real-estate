@@ -7,7 +7,6 @@ import Header from "./views/Header";
 
 function App() {
   const { content } = useFetchHomes();
-  console.log(content);
 
   return (
     <div className="App">

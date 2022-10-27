@@ -17,14 +17,17 @@ function PropertyCard({ data: property, showLiked }) {
     }
   };
 
-  console.log(property);
-
   return (
     <Link
       className="bg-white rounded-md overflow-hidden shadow relative"
       to={`/boliger/${property.id}`}
     >
-      <img src={property.images[0].url} alt="" />
+      <img
+        src={property.images[0].url}
+        alt={`Facade billede af ${property.adress1}`}
+        title={`Facade billede af ${property.adress1}`}
+        className="max-h-[350px] rounded-t-md w-full"
+      />
       {showLiked && (
         <div className="absolute top-6 right-6 bg-white w-10 h-10 rounded-full flex items-center justify-center">
           <svg
