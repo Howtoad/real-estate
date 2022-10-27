@@ -6,12 +6,12 @@ const HeaderNav = () => {
   return (
     <div className="flex w-full h-36 place-content-center">
       <div className="flex max-w-[1100px] place-self-center w-full">
-        <div>
+        <NavLink to="/">
           <img
             src="/images\real-estate\logo.png"
             alt="Image of the company logo"
           ></img>
-        </div>
+        </NavLink>
         <div className="ml-auto place-self-end flex space-x-10">
           <NavLink to="/boliger" className={styles.headerLink}>
             Boliger til salg
