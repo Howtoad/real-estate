@@ -7,7 +7,7 @@ const DetailsHeader = ({ houseInfo }) => {
 
   const iconCss = "w-auto h-[50px] text-gray-500 mx-4";
   return (
-    <div className="ml-[404px] mt-[39px] max-w-[1110px] flex justify-between border-solid border-b-2">
+    <div className="mx-auto mt-[39px] w-full max-w-[1110px] flex justify-between border-solid border-b-2">
       <div className="mb-4">
         <h2 className="font-bold mb-2 text-lg">
           {houseInfo?.adress1} {houseInfo?.adress2}
