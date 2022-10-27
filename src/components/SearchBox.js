@@ -15,9 +15,7 @@ const SearchBox = () => {
             type="text"
             placeholder="Søg på fx. glaskeramisk komfur, bryggers, kælder eller lignende"
           ></input>
-          <Button css="bg-primary h-12 w-[120px] text-white">
-            <p>Søg</p>
-          </Button>
+          <Button css="bg-primary max-w-[120px]">Søg</Button>
         </div>
       </div>
     </div>
