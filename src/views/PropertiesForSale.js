@@ -18,13 +18,7 @@ function PropertiesForSale() {
 
         <label>Pris-interval</label>
         <div>
-          <input
-            className="thumb:bg-red"
-            type="range"
-            value="0"
-            min="0"
-            max="12000000"
-          />
+          <input type="range" value="0" min="0" max="12000000" />
           <input type="range" value="12000000" min="0" max="12000000" />
         </div>
 
