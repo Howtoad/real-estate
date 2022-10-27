@@ -9,7 +9,7 @@ function PropertiesForSale() {
   return (
     <div className=" ">
       <Heading title="Boliger til salg" />
-      <div className="max-w-[1100px]">
+      <div className="max-w-[1100px] mx-auto">
         <h3>Søg efter dit drømmehus</h3>
         <label>
           Ejendomstype
