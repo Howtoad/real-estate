@@ -5,7 +5,7 @@ const HeaderNav = () => {
   };
   return (
     <div className="flex w-full h-36 place-content-center">
-      <div className="flex max-w-[1100px] place-self-center w-full">
+      <nav className="flex max-w-[1100px] place-self-center w-full">
         <div>
           <img
             src="/images\real-estate\logo.png"
@@ -26,7 +26,7 @@ const HeaderNav = () => {
             Kontakt os
           </NavLink>
         </div>
-      </div>
+      </nav>
     </div>
   );
 };
