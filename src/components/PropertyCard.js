@@ -17,8 +17,6 @@ function PropertyCard({ data: property, showLiked }) {
     }
   };
 
-  console.log(property);
-
   return (
     <Link
       className="bg-white rounded-md overflow-hidden shadow relative"
@@ -26,7 +24,7 @@ function PropertyCard({ data: property, showLiked }) {
     >
       <img
         src={property.images[0].url}
-        alt=""
+        alt={`Facade billede af ${property.adress1}`}
         className="max-h-[350px] rounded-t-md w-full"
       />
       {showLiked && (
