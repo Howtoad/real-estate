@@ -19,8 +19,8 @@ function SelectedProperties() {
             return <PropertyCard key={index} data={property} />;
           })}
         </div>
-        <Link className="text-white bg-primary" to="">
-          UDSKIFT MIG
+        <Link className="buttonStyle w-fit px-6" to="/boliger">
+          Se alle boliger
         </Link>
       </div>
     </div>
