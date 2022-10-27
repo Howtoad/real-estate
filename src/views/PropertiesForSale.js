@@ -17,10 +17,6 @@ function PropertiesForSale() {
         </label>
 
         <label>Pris-interval</label>
-        <div>
-          <input type="range" value="0" min="0" max="12000000" />
-          <input type="range" value="12000000" min="0" max="12000000" />
-        </div>
 
         <div className="grid md:grid-cols-2 gap-10 py-10  mx-auto">
           {properties?.map((property, index) => (
