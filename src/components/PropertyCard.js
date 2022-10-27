@@ -25,6 +25,7 @@ function PropertyCard({ data: property, showLiked }) {
       <img
         src={property.images[0].url}
         alt={`Facade billede af ${property.adress1}`}
+        title={`Facade billede af ${property.adress1}`}
         className="max-h-[350px] rounded-t-md w-full"
       />
       {showLiked && (
