@@ -48,13 +48,21 @@ function PropertyCard({ data: property, showLiked }) {
         </div>
       )}
       <div className="p-6 flex flex-col gap-4 text-paragraph">
-        <h3 className="font-bold text-heading_2">{property.adress1}</h3>
+        <h3 className="font-bold text-heading_2 flex items-center gap-2">
+          {property.adress1}{" "}
+          {property.adress2 && (
+            <>
+              <div className="w-[3px] h-[3px] bg-black rounded"></div>
+              {property.adress2}
+            </>
+          )}
+        </h3>
         <p>
           {property.postalcode} {property.city}
         </p>
         <div className="flex items-center gap-2">
           <p className="font-bold">{property.type}</p>
-          <span className="block w-[3px] h-[3px] bg-black rounded"></span>
+          <div className="w-[3px] h-[3px] bg-black rounded"></div>
           <p>Ejerudgift: {property.cost.toLocaleString()} kr.</p>
         </div>
         <div className="flex gap-6 border-t border-shape pt-4">
@@ -65,7 +73,7 @@ function PropertyCard({ data: property, showLiked }) {
           </p>
           <p className="flex items-center gap-2">
             {property.rooms.split("/").at(-1)} værelser
-            <span className="block w-[3px] h-[3px] bg-black rounded"></span>
+            <div className="w-[3px] h-[3px] bg-black rounded"></div>
             {property.livingspace} m²
           </p>
           <p className="ml-auto font-bold">
