@@ -8,4 +8,10 @@
   html {
     font-family: "Roboto", sans-serif;
   }
+  /* Class for styling to look like the button */
+  /* Define max-width to fit your needs when using it */
+  /* Define a bg color if needed, as it defaults to bg-primary */
+  .buttonStyle {
+    @apply h-12 text-white w-full bg-primary flex items-center justify-center;
+  }
 }
