@@ -1,5 +1,6 @@
 import useFetchHome from "../customHooks/useFetchHome";
 import DetailsHeader from "../features/PropertyDetails/templates/DetailsHeader";
+import DetailsSection from "../features/PropertyDetails/templates/DetailsSection";
 
 const House = () => {
   const { content } = useFetchHome();
@@ -13,6 +14,7 @@ const House = () => {
         alt={content?.images[0]?.name}
       />
       <DetailsHeader houseInfo={content} />
+      <DetailsSection houseInfo={content} />
     </section>
   );
 };
