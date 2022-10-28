@@ -1,0 +1,48 @@
+.multi-range-slider {
+  border: none;
+  padding: 20px 0px;
+}
+
+.multi-range-slider .bar-left,
+.multi-range-slider .bar-right {
+  -box-shadow: inset 0px 0px 5px gray;
+  box-shadow: none;
+  background-color: lightgrey;
+  padding: 2px 0;
+}
+
+.multi-range-slider .thumb::before {
+  border: none;
+  width: 15px;
+  height: 15px;
+  margin: -6px -12px;
+  box-shadow: 0px 0px 1px black, inset 0px 0px 5px grey;
+}
+
+.multi-range-slider .thumb .caption .min-caption::after,
+.multi-range-slider .thumb .caption .max-caption::after {
+  content: "kr.";
+  position: absolute;
+  top: 1px;
+  right: -15px;
+  font-size: 13px;
+}
+
+.multi-range-slider .bar-inner {
+  border: none;
+  background-color: #25517a;
+}
+
+.multi-range-slider .labels .label {
+  width: fit-content;
+}
+
+.multi-range-slider .thumb .caption * {
+  background-color: white;
+  color: black;
+  border-radius: 5px;
+  box-shadow: none;
+  letter-spacing: 0.5px;
+  height: 10px;
+  min-width: unset;
+}
