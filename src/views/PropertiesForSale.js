@@ -38,6 +38,14 @@ function PropertiesForSale() {
         query.minPrice === 0 &&
         query.maxPrice === 12000000
           ? true
+          : query.type === null &&
+            property.price >= query.minPrice &&
+            property.price <= query.maxPrice
+          ? true
+          : query.type === "Alle" &&
+            property.price >= query.minPrice &&
+            property.price <= query.maxPrice
+          ? true
           : property.type.toLowerCase().includes(query.type?.toLowerCase()) &&
             property.price >= query.minPrice &&
             property.price <= query.maxPrice
@@ -57,12 +65,9 @@ function PropertiesForSale() {
               Ejendomstype
               <select
                 className="p-3 border border-gray-300 text-paragraph_2"
-                defaultValue="Ejendomstype"
                 onChange={(e) => setQuery({ ...query, type: e.target.value })}
               >
-                <option value="Ejendomstype" disabled hidden>
-                  Ejendomstype
-                </option>
+                <option value="Alle">Alle</option>
                 <option value="Villa">Villa</option>
                 <option value="Landejendom">Landejendom</option>
                 <option value="Byhus">Byhus</option>
@@ -98,6 +103,9 @@ function PropertiesForSale() {
           {filteredProperties?.map((property, index) => (
             <PropertyCard key={index} data={property} />
           ))}
+          {filteredProperties?.length === 0 && (
+            <p>Ingen boliger matcher dine valgte søgekriterier</p>
+          )}
         </div>
       </div>
     </>
