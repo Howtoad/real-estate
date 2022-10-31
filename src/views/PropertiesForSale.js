@@ -58,7 +58,7 @@ function PropertiesForSale() {
       <Heading title="Boliger til salg" />
       <div className="max-w-[1100px] mx-auto py-10">
         <div className="py-10">
-          <h3 className="text-xl">Søg efter dit drømmehus</h3>
+          <h3 className="text-xl text-heading_2">Søg efter dit drømmehus</h3>
           <div className="w-10 h-1 bg-primary mb-6 mt-1"></div>
           <div className="flex gap-6">
             <label className="flex flex-col justify-between">
