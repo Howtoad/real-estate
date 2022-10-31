@@ -7,19 +7,22 @@ import Home from "./views/Home";
 import House from "./views/House";
 import PropertiesForSale from "./views/PropertiesForSale";
 import Login from "./views/Login";
+import { UserProvider } from "./context/UserContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route element={<App />}>
-          <Route path="/" element={<Home />} />
-          <Route path="/boliger/:id" element={<House />} />
-          <Route path="/boliger" element={<PropertiesForSale />} />
-          <Route path="/login" element={<Login />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <UserProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<App />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/boliger/:id" element={<House />} />
+            <Route path="/boliger" element={<PropertiesForSale />} />
+            <Route path="/login" element={<Login />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </UserProvider>
   </React.StrictMode>
 );
