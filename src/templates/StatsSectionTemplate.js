@@ -3,6 +3,12 @@ import StatPitchTemplate from "./StatPitchTemplate";
 import StatPitch from "../components/StatPitch";
 
 const StatsSectionTemplate = () => {
+  const styles = {
+    pitchTitle:
+      "text-heading_2 font-medium text-2xl col-start-2 col-end-3 pl-4 row-start-1 row-end-2",
+    pitchText:
+      "max-w-[290px] text-lg text-paragraph col-start-2 col-end-3 pl-4 row-start-1 row-end-2 place-self-end pr-4",
+  };
   return (
     <div className="max-w-[1110px] w-full mx-auto mt-[120px]">
       <div>
@@ -13,6 +19,7 @@ const StatsSectionTemplate = () => {
               cornerBold="38+"
               cornerText="Års mægler-erfaring"
               cornerCss="bg-primary"
+              alt="picture of a family"
             />
           </div>
           <div className="absolute top-0 right-0 max-w-[550px]">
@@ -34,14 +41,20 @@ const StatsSectionTemplate = () => {
             <div className="flex">
               <StatPitch
                 icon="/images/real-estate/handhouse_icon.svg"
-                pitchTitle="4829"
-                pitchText="boliger solgt"
-              />
+                pitchTitle=""
+                pitchText=""
+              >
+                <h3 className={styles.pitchTitle}>4829</h3>
+                <p className={styles.pitchText}>boliger solgt</p>
+              </StatPitch>
               <StatPitch
                 icon="/images/real-estate/house_icon.svg"
-                pitchTitle="158"
-                pitchText="boliger til salg"
-              />
+                pitchTitle=""
+                pitchText=""
+              >
+                <h3 className={styles.pitchTitle}>158</h3>
+                <p className={styles.pitchText}>boliger til salg</p>
+              </StatPitch>
             </div>
           </div>
         </div>

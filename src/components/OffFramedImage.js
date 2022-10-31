@@ -1,7 +1,7 @@
 const OffFramedImage = (props) => {
   return (
     <>
-      <img className="absolute" src={props.src} alt="Hero image"></img>
+      <img className="absolute" src={props.src} alt={props.alt}></img>
       <div className=" relative max-w-[447px] h-[472px] border-[12px] border-primary translate-x-7 translate-y-7 w-full">
         <div
           className={
