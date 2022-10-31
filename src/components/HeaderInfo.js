@@ -1,6 +1,7 @@
 import { FaPaperPlane } from "react-icons/fa";
 import { BsFillTelephoneFill } from "react-icons/bs";
 import { IoIosPerson } from "react-icons/io";
+import { Link } from "react-router-dom";
 const HeaderInfo = () => {
   const styles = {
     headerInfoText: "flex text-lg pl-2",
@@ -18,7 +19,9 @@ const HeaderInfo = () => {
         </div>
         <div className="flex ml-auto">
           <IoIosPerson size="24px" />
-          <p className={styles.headerInfoText}>Log ind</p>
+          <Link className={styles.headerInfoText} to="/login">
+            Log ind
+          </Link>
         </div>
       </div>
     </div>
