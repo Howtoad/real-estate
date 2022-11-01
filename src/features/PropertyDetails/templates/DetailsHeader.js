@@ -3,6 +3,7 @@ import { AiOutlineHeart } from "react-icons/ai";
 import { RiStackLine } from "react-icons/ri";
 import ModalWindow from "../components/ModalWindow";
 import { useState } from "react";
+import Gallery from "../components/Gallery";
 
 const DetailsHeader = ({ houseInfo }) => {
   const [showModalWindow, setShowModalWindow] = useState();
@@ -56,7 +57,7 @@ const DetailsHeader = ({ houseInfo }) => {
             className={iconCss}
             onClick={() => {
               setShowModalWindow(true);
-              setModalContent();
+              setModalContent(<Gallery images={houseInfo?.images} />);
             }}
           />
           <RiStackLine
