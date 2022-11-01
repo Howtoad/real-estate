@@ -1,15 +1,27 @@
-import { FaPaperPlane } from "react-icons/fa";
+import { FaLinkedinIn, FaPaperPlane } from "react-icons/fa";
 import { BsFillTelephoneFill } from "react-icons/bs";
+import { AiFillSkype, AiOutlineInstagram } from "react-icons/ai";
 
 const AgentInfo = ({ agent }) => {
   return (
     <div className="p-[40px] flex gap-[30px]">
       <div className="grid">
         <img
-          className="w-[280px] h-auto"
+          className="w-[280px] h-auto col-start-1 col-end-2 row-start-1 row-end-2"
           src={agent?.image?.url}
           alt={agent?.name}
         />
+        <div className="bg-primary w-fit h-fit px-2 mt-auto mb-[30px] col-start-1 col-end-2 row-start-1 row-end-2 flex justify-around items-center">
+          <a href="https://www.instagram.com/" className="w-fit h-fit m-3">
+            <AiOutlineInstagram color="white" className="h-auto w-[18px]" />
+          </a>
+          <a href="https://www.linkedin.com/" className="w-fit h-fit m-3">
+            <FaLinkedinIn color="white" className="h-auto w-[18px]" />
+          </a>
+          <a href="https://www.skype.com/en/" className="w-fit h-fit m-3">
+            <AiFillSkype color="white" className="h-auto w-[18px]" />
+          </a>
+        </div>
       </div>
       <div className="">
         <h4 className="font-medium text-lg heading_2">{agent?.name}</h4>
