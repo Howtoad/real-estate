@@ -9,7 +9,7 @@ const HeaderInfo = () => {
     headerInfoText: "flex text-lg pl-2",
   };
 
-  const { user } = useUser();
+  const { user, setUser } = useUser();
 
   return (
     <div className="flex w-full bg-primary place-content-center h-16">
@@ -24,9 +24,21 @@ const HeaderInfo = () => {
         </div>
         <div className="flex ml-auto">
           <IoIosPerson size="24px" />
-          <Link className={styles.headerInfoText} to="/login">
-            {user ? "Log ud" : "Log ind"}
-          </Link>
+          {!user && (
+            <Link className={styles.headerInfoText} to="/login">
+              Log ind
+            </Link>
+          )}
+          {user && (
+            <button
+              className={styles.headerInfoText}
+              onClick={() => {
+                setUser(null);
+              }}
+            >
+              Log ud
+            </button>
+          )}
         </div>
       </div>
     </div>
