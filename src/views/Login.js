@@ -1,9 +1,9 @@
-import React from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import Heading from "../components/Heading";
 import { Link } from "react-router-dom";
+import { useUser } from "../context/UserContext";
 
 const schema = yup
   .object({
@@ -16,13 +16,29 @@ const schema = yup
   .required();
 
 function Login() {
+  const { setUser } = useUser();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm({ mode: "onBlur", resolver: yupResolver(schema) });
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    fetch("https://dinmaegler.herokuapp.com/auth/local", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        identifier: data.email,
+        password: data.password,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => setUser(data))
+      .catch((err) => console.error(err));
+  };
 
   return (
     <>
@@ -57,7 +73,9 @@ function Login() {
               {errors.password?.message}
             </p>
           </label>
-          <button className="buttonStyle">Log ind</button>
+          <button className="buttonStyle cursor-pointer" type="submit">
+            Log ind
+          </button>
         </form>
         <p className="text-paragraph mb-2">Log ind med</p>
         <div className="flex gap-4 mb-6">
