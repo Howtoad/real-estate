@@ -7,6 +7,7 @@ import Home from "./views/Home";
 import House from "./views/House";
 import PropertiesForSale from "./views/PropertiesForSale";
 import AgentsTemplate from "./templates/AgentsTemplate";
+import ContactAgent from "./views/ContactAgent";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -17,6 +18,7 @@ root.render(
           <Route path="/" element={<Home />} />
           <Route path="/boliger/:id" element={<House />} />
           <Route path="/boliger" element={<PropertiesForSale />} />
+          <Route path="/maeglere/:id" element={<ContactAgent />} />
           <Route path="/maeglere" element={<AgentsTemplate />} />
         </Route>
       </Routes>
