@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Agent = ({ data: agent }) => {
   return (
     <div className="max-w-[350px] w-full rounded drop-shadow border">
-      <Link to={"http://localhost:3000/" + agent.id}>
+      <Link to={"/" + agent.id}>
         <img className="mb-6" src={agent.image.url} alt="Agent" title="Agent" />
         <div className="grid place-content-center text-center ">
           <h3 className="row-start-1 row-end-2 text-heading_2 text-2xl font-medium mb-1">
