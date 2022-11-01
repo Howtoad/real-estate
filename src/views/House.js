@@ -1,4 +1,4 @@
-import useFetchHome from "../customHooks/useFetchHome";
+import useFetchHome from "../hooks/useFetchHome";
 import DetailsHeader from "../features/PropertyDetails/templates/DetailsHeader";
 
 const House = () => {
