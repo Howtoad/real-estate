@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import Heading from "../components/Heading";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useUser } from "../context/UserContext";
 
 const schema = yup
@@ -17,6 +17,7 @@ const schema = yup
 
 function Login() {
   const { setUser } = useUser();
+  const navigate = useNavigate();
 
   const {
     register,
@@ -38,6 +39,8 @@ function Login() {
       .then((response) => response.json())
       .then((data) => setUser(data))
       .catch((err) => console.error(err));
+
+    navigate("/");
   };
 
   return (
@@ -67,6 +70,7 @@ function Login() {
             <input
               className="placeholder:text-paragraph_2 border border-[#D3DEE8] p-2"
               placeholder="Password"
+              type="password"
               {...register("password")}
             />
             <p className="absolute -bottom-4 left-0 text-red text-xs">
