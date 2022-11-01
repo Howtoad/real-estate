@@ -3,7 +3,6 @@ import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 
 const Gallery = ({ images }) => {
   const [index, setIndex] = useState(0);
-  console.log(index);
   return (
     <>
       <section className="grid grid-cols-3 grid-rows-1">
