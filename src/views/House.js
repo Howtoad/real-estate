@@ -11,7 +11,7 @@ const House = () => {
   return (
     <section className="my-8 mb-20">
       <img
-        className="w-[1920px] h-[780px]"
+        className="w-[1920px] h-[780px] mx-auto"
         src={content?.images[0]?.url}
         alt={content?.images[0]?.name}
       />
