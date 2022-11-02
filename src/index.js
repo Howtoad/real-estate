@@ -10,6 +10,7 @@ import AgentsTemplate from "./templates/AgentsTemplate";
 import ContactAgent from "./views/ContactAgent";
 import Login from "./views/Login";
 import { UserProvider } from "./context/UserContext";
+import NotFound from "./views/NotFound";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -24,6 +25,7 @@ root.render(
             <Route path="/maeglere/:id" element={<ContactAgent />} />
             <Route path="/maeglere" element={<AgentsTemplate />} />
             <Route path="/login" element={<Login />} />
+            <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
       </BrowserRouter>
