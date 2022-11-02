@@ -96,7 +96,7 @@ const ModalWindow = ({
         aria-modal="true"
         role="alertdialog"
         aria-hidden={ariaHidden}
-        className="m-auto min-w-10 min-h-10 w-fit h-fit z-10 bg-white fixed top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 justify-between flex-col rounded-md"
+        className="m-auto min-w-10 min-h-10 w-fit h-fit z-10 fixed top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 justify-between flex-col rounded-md"
         variants={
           (modalContentAnimation && modalContentAnimation) || ContentAnimation
         }

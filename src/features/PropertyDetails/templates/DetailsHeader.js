@@ -42,6 +42,27 @@ const DetailsHeader = ({ houseInfo }) => {
         setShowModalWindow={setShowModalWindow}
       >
         {modalContent}
+        <div className="flex mx-auto">
+          <IoImageOutline
+            className={iconCss + " text-background"}
+            onClick={() => {
+              setModalContent(<Gallery images={houseInfo?.images} />);
+            }}
+          />
+          <RiStackLine
+            className={iconCss + " text-background"}
+            onClick={() => {
+              setModalContent(buildingPlan);
+            }}
+          />
+          <IoLocationOutline
+            className={iconCss + " text-background"}
+            onClick={() => {
+              setModalContent(map);
+            }}
+          />
+          <AiOutlineHeart className={iconCss} />
+        </div>
       </ModalWindow>
       <div className="mx-auto mt-[39px] w-full max-w-[1110px] flex justify-between border-solid border-b-2">
         <div className="mb-4">
