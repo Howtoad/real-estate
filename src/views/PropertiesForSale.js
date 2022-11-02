@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Heading from "../components/Heading";
 import PropertyCard from "../components/PropertyCard";
-import useFetchHomes from "../customHooks/useFetchHomes";
+import useFetchHomes from "../hooks/useFetchHomes";
 import MultiRangeSlider from "multi-range-slider-react";
 import "../slider.css";
 
