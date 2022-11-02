@@ -8,20 +8,25 @@ import House from "./views/House";
 import PropertiesForSale from "./views/PropertiesForSale";
 import AgentsTemplate from "./templates/AgentsTemplate";
 import ContactAgent from "./views/ContactAgent";
+import Login from "./views/Login";
+import { UserProvider } from "./context/UserContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route element={<App />}>
-          <Route path="/" element={<Home />} />
-          <Route path="/boliger/:id" element={<House />} />
-          <Route path="/boliger" element={<PropertiesForSale />} />
-          <Route path="/maeglere/:id" element={<ContactAgent />} />
-          <Route path="/maeglere" element={<AgentsTemplate />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <UserProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<App />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/boliger/:id" element={<House />} />
+            <Route path="/boliger" element={<PropertiesForSale />} />
+            <Route path="/maeglere/:id" element={<ContactAgent />} />
+            <Route path="/maeglere" element={<AgentsTemplate />} />
+            <Route path="/login" element={<Login />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </UserProvider>
   </React.StrictMode>
 );
