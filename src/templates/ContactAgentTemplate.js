@@ -1,5 +1,5 @@
 import AgentInfo from "../components/AgentInfo";
-import useFetchAgent from "../customHooks/useFetchAgent";
+import useFetchAgent from "../hooks/useFetchAgent";
 
 const ContactAgentTemplate = () => {
   const { content } = useFetchAgent();

@@ -1,5 +1,5 @@
 import Agent from "../components/Agent";
-import useFetchAgents from "../customHooks/useFetchAgents";
+import useFetchAgents from "../hooks/useFetchAgents";
 import Heading from "../components/Heading";
 
 const AgentsTemplate = () => {
