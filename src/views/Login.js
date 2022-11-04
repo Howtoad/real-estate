@@ -4,6 +4,7 @@ import * as yup from "yup";
 import Heading from "../components/Heading";
 import { Link, useNavigate } from "react-router-dom";
 import { useUser } from "../context/UserContext";
+import FormInput from "../components/FormInput";
 
 const schema = yup
   .object({
@@ -21,6 +22,7 @@ function Login() {
 
   const {
     register,
+    setError,
     handleSubmit,
     formState: { errors },
   } = useForm({ mode: "onBlur", resolver: yupResolver(schema) });
@@ -36,11 +38,28 @@ function Login() {
         password: data.password,
       }),
     })
-      .then((response) => response.json())
-      .then((data) => setUser(data))
-      .catch((err) => console.error(err));
-
-    navigate("/");
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error(`${response.status} ${response.statusText}`);
+        }
+      })
+      .then((data) => {
+        setUser(data);
+        navigate("/");
+      })
+      .catch((err) => {
+        console.error(err);
+        setError("email", {
+          type: "custom",
+          message: "Ugyldige login oplysninger. Prøv igen...",
+        });
+        setError("password", {
+          type: "custom",
+          message: "Ugyldige login oplysninger. Prøv igen...",
+        });
+      });
   };
 
   return (
@@ -54,29 +73,19 @@ function Login() {
           className="py-10 flex flex-col gap-6"
           onSubmit={handleSubmit(onSubmit)}
         >
-          <label className="flex flex-col gap-2 text-paragraph relative">
-            Email
-            <input
-              className="placeholder:text-paragraph_2 border border-[#D3DEE8] p-2"
-              placeholder="Email"
-              {...register("email")}
-            />
-            <p className="absolute -bottom-4 left-0 text-red text-xs">
-              {errors.email?.message}
-            </p>
-          </label>
-          <label className="flex flex-col gap-2 text-paragraph relative">
-            Password
-            <input
-              className="placeholder:text-paragraph_2 border border-[#D3DEE8] p-2"
-              placeholder="Password"
-              type="password"
-              {...register("password")}
-            />
-            <p className="absolute -bottom-4 left-0 text-red text-xs">
-              {errors.password?.message}
-            </p>
-          </label>
+          <FormInput
+            label="Email"
+            placeholder="Email"
+            errorMessage={errors.email?.message}
+            register={register("email")}
+          />
+          <FormInput
+            label="Password"
+            type="password"
+            placeholder="Password"
+            errorMessage={errors.password?.message}
+            register={register("password")}
+          />
           <button className="buttonStyle cursor-pointer" type="submit">
             Log ind
           </button>
