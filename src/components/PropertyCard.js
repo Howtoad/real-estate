@@ -1,7 +1,54 @@
-import React from "react";
+import React, { useState } from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useUser } from "../context/UserContext";
 
 function PropertyCard({ data: property, showLiked }) {
+  const { user } = useUser();
+  const [favoriteProperties, setFavoriteProperties] = useState([]);
+
+  useEffect(() => {
+    if (user) {
+      setFavoriteProperties([...user.user.homes]);
+    }
+  }, []);
+
+  const updateFavorites = () => {
+    console.log("property", property);
+
+    const kekw = favoriteProperties.includes(property.id)
+      ? favoriteProperties.filter((id) => id !== property.id)
+      : [...favoriteProperties, property.id];
+
+    setFavoriteProperties(kekw);
+    console.log("favoriteProperties", favoriteProperties);
+    console.log("property.id", property.id);
+
+    fetch(`https://dinmaegler.herokuapp.com/users/${user.user.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${user.jwt}`,
+      },
+      body: JSON.stringify({
+        homes: kekw.map((property) => property.id),
+      }),
+    })
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error(`${response.status} ${response.statusText}`);
+        }
+      })
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   const switchEnergylabelColor = () => {
     switch (property.energylabel) {
       case "A":
@@ -20,7 +67,7 @@ function PropertyCard({ data: property, showLiked }) {
   return (
     <Link
       className="bg-white rounded-md overflow-hidden shadow relative"
-      to={`/boliger/${property.id}`}
+      // to={`/boliger/${property.id}`}
     >
       <img
         src={property.images[0].url}
@@ -29,7 +76,13 @@ function PropertyCard({ data: property, showLiked }) {
         className="max-h-[350px] rounded-t-md w-full"
       />
       {showLiked && (
-        <div className="absolute top-6 right-6 bg-white w-10 h-10 rounded-full flex items-center justify-center">
+        <div
+          className="absolute z-50 top-6 right-6 bg-white w-10 h-10 rounded-full flex items-center justify-center"
+          // onCLick={updateFavorites}
+          onClick={() => {
+            updateFavorites();
+          }}
+        >
           <svg
             width="20"
             height="20"
@@ -40,9 +93,9 @@ function PropertyCard({ data: property, showLiked }) {
             <path
               d="M17.3671 3.84172C16.9415 3.41589 16.4361 3.0781 15.8799 2.84763C15.3237 2.61716 14.7275 2.49854 14.1254 2.49854C13.5234 2.49854 12.9272 2.61716 12.371 2.84763C11.8147 3.0781 11.3094 3.41589 10.8838 3.84172L10.0004 4.72506L9.11709 3.84172C8.25735 2.98198 7.09129 2.49898 5.87542 2.49898C4.65956 2.49898 3.4935 2.98198 2.63376 3.84172C1.77401 4.70147 1.29102 5.86753 1.29102 7.08339C1.29102 8.29925 1.77401 9.46531 2.63376 10.3251L3.51709 11.2084L10.0004 17.6917L16.4838 11.2084L17.3671 10.3251C17.7929 9.89943 18.1307 9.39407 18.3612 8.83785C18.5917 8.28164 18.7103 7.68546 18.7103 7.08339C18.7103 6.48132 18.5917 5.88514 18.3612 5.32893C18.1307 4.77271 17.7929 4.26735 17.3671 3.84172V3.84172Z"
               stroke="#162A41"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
           </svg>
         </div>
