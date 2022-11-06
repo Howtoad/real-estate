@@ -50,7 +50,6 @@ function Login() {
         navigate("/");
       })
       .catch((err) => {
-        console.error(err);
         setError("email", {
           type: "custom",
           message: "Ugyldige login oplysninger. Prøv igen...",
