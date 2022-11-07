@@ -4,25 +4,21 @@ import { Link } from "react-router-dom";
 import { useUser } from "../context/UserContext";
 
 function PropertyCard({ data: property, showLiked }) {
-  const { user } = useUser();
+  const { user, setUser } = useUser();
   const [favoriteProperties, setFavoriteProperties] = useState([]);
 
   useEffect(() => {
     if (user) {
-      setFavoriteProperties([...user.user.homes]);
+      setFavoriteProperties(user.user.homes.map((property) => property.id));
     }
-  }, []);
+  }, [user]);
 
   const updateFavorites = () => {
-    console.log("property", property);
-
-    const kekw = favoriteProperties.includes(property.id)
+    const newFavoriteProperties = favoriteProperties.includes(property.id)
       ? favoriteProperties.filter((id) => id !== property.id)
       : [...favoriteProperties, property.id];
 
-    setFavoriteProperties(kekw);
-    console.log("favoriteProperties", favoriteProperties);
-    console.log("property.id", property.id);
+    setFavoriteProperties(newFavoriteProperties);
 
     fetch(`https://dinmaegler.herokuapp.com/users/${user.user.id}`, {
       method: "PUT",
@@ -31,7 +27,7 @@ function PropertyCard({ data: property, showLiked }) {
         Authorization: `Bearer ${user.jwt}`,
       },
       body: JSON.stringify({
-        homes: kekw.map((property) => property.id),
+        homes: newFavoriteProperties,
       }),
     })
       .then((response) => {
@@ -42,7 +38,13 @@ function PropertyCard({ data: property, showLiked }) {
         }
       })
       .then((data) => {
-        console.log(data);
+        setUser({
+          ...user,
+          user: {
+            ...user.user,
+            homes: data.homes,
+          },
+        });
       })
       .catch((err) => {
         console.log(err);
@@ -66,7 +68,7 @@ function PropertyCard({ data: property, showLiked }) {
 
   return (
     <Link
-      className="bg-white rounded-md overflow-hidden shadow relative"
+      className="relative overflow-hidden bg-white rounded-md shadow"
       // to={`/boliger/${property.id}`}
     >
       <img
@@ -77,7 +79,7 @@ function PropertyCard({ data: property, showLiked }) {
       />
       {showLiked && (
         <div
-          className="absolute z-50 top-6 right-6 bg-white w-10 h-10 rounded-full flex items-center justify-center"
+          className="absolute z-50 flex items-center justify-center w-10 h-10 bg-white rounded-full top-6 right-6"
           // onCLick={updateFavorites}
           onClick={() => {
             updateFavorites();
@@ -100,8 +102,8 @@ function PropertyCard({ data: property, showLiked }) {
           </svg>
         </div>
       )}
-      <div className="p-6 flex flex-col gap-4 text-paragraph">
-        <h3 className="font-bold text-heading_2 flex items-center gap-2">
+      <div className="flex flex-col gap-4 p-6 text-paragraph">
+        <h3 className="flex items-center gap-2 font-bold text-heading_2">
           {property.adress1}{" "}
           {property.adress2 && (
             <>
@@ -118,7 +120,7 @@ function PropertyCard({ data: property, showLiked }) {
           <div className="w-[3px] h-[3px] bg-black rounded"></div>
           <p>Ejerudgift: {property.cost.toLocaleString()} kr.</p>
         </div>
-        <div className="flex gap-6 border-t border-shape pt-4">
+        <div className="flex gap-6 pt-4 border-t border-shape">
           <p
             className={`flex items-center justify-center uppercase w-6 h-6 text-white ${switchEnergylabelColor()}`}
           >
