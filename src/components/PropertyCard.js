@@ -69,7 +69,7 @@ function PropertyCard({ data: property, showLiked }) {
   return (
     <Link
       className="relative overflow-hidden bg-white rounded-md shadow"
-      // to={`/boliger/${property.id}`}
+      to={`/boliger/${property.id}`}
     >
       <img
         src={property.images[0].url}
@@ -80,7 +80,9 @@ function PropertyCard({ data: property, showLiked }) {
       {showLiked && (
         <div
           className="absolute z-50 flex items-center justify-center w-10 h-10 bg-white rounded-full top-6 right-6"
-          onClick={() => {
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
             updateFavorites();
           }}
         >
