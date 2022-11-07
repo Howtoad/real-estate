@@ -80,7 +80,6 @@ function PropertyCard({ data: property, showLiked }) {
       {showLiked && (
         <div
           className="absolute z-50 flex items-center justify-center w-10 h-10 bg-white rounded-full top-6 right-6"
-          // onCLick={updateFavorites}
           onClick={() => {
             updateFavorites();
           }}
