@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import PropertyCard from "../components/PropertyCard";
-import useFetchHomes from "../customHooks/useFetchHomes";
+import useFetchHomes from "../hooks/useFetchHomes";
 
 function SelectedProperties() {
   const { content: properties } = useFetchHomes();

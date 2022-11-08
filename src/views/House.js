@@ -1,4 +1,4 @@
-import useFetchHome from "../customHooks/useFetchHome";
+import useFetchHome from "../hooks/useFetchHome";
 import DetailsAgent from "../features/PropertyDetails/templates/DetailsAgent";
 import DetailsDescription from "../features/PropertyDetails/templates/DetailsDescription";
 import DetailsHeader from "../features/PropertyDetails/templates/DetailsHeader";

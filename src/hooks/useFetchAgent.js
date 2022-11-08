@@ -7,7 +7,7 @@ const useFetchAgent = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    fetch("https://dinmaegler.herokuapp.com/agents" + id, {
+    fetch("https://dinmaegler.herokuapp.com/agents/" + id, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

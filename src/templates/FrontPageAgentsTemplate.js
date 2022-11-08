@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import Agent from "../components/Agent";
-import useFetchAgents from "../customHooks/useFetchAgents";
+import useFetchAgents from "../hooks/useFetchAgents";
 import { useEffect, useState } from "react";
 
 const FrontPageAgentsTemplate = () => {

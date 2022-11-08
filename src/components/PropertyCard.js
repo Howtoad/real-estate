@@ -73,7 +73,7 @@ function PropertyCard({ data: property, showLiked }) {
           </p>
           <p className="flex items-center gap-2">
             {property.rooms.split("/").at(-1)} værelser
-            <div className="w-[3px] h-[3px] bg-black rounded"></div>
+            <span className="block w-[3px] h-[3px] bg-black rounded"></span>
             {property.livingspace} m²
           </p>
           <p className="ml-auto font-bold">
