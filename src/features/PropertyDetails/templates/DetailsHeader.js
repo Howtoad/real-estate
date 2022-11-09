@@ -9,7 +9,8 @@ const DetailsHeader = ({ houseInfo }) => {
   const [showModalWindow, setShowModalWindow] = useState();
   const [modalContent, setModalContent] = useState();
 
-  const iconCss = "w-auto h-[50px] text-gray-500 mx-4 paragraph_2";
+  const iconCss =
+    "w-auto h-[50px] text-gray-500 mx-4 paragraph_2 cursor-pointer";
   const buildingPlan = (
     <div>
       <img src={houseInfo?.floorplan?.url} alt="Floorplan" />
