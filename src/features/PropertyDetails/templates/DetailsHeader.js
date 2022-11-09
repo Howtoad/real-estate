@@ -42,7 +42,7 @@ const DetailsHeader = ({ houseInfo }) => {
         setShowModalWindow={setShowModalWindow}
       >
         {modalContent}
-        <div className="flex mx-auto">
+        <div className="flex mx-auto mt-14">
           <IoImageOutline
             className={iconCss + " text-background"}
             onClick={() => {
@@ -61,7 +61,7 @@ const DetailsHeader = ({ houseInfo }) => {
               setModalContent(map);
             }}
           />
-          <AiOutlineHeart className={iconCss} />
+          <AiOutlineHeart className={iconCss + " text-background"} />
         </div>
       </ModalWindow>
       <div className="mx-auto mt-[39px] w-full max-w-[1110px] flex justify-between border-solid border-b-2">
