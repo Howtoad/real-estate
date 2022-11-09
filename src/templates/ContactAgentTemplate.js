@@ -28,7 +28,7 @@ const ContactAgentTemplate = () => {
           </p>
         </div>
         <div className="border max-w-[650px] w-full mx-auto mt-8 p-10">
-          <h3 className="text-heading_2 font-medium font-3xl ">
+          <h3 className="text-heading_2 font-medium text-xl pb-3">
             Kontakt {content?.name}
           </h3>
           <div className="bg-primary max-w-[60px] w-full h-1 mb-8"></div>
