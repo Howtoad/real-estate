@@ -44,15 +44,17 @@ function Favorites() {
                     title={`Facade billede af ${property.adress1}`}
                   />
                   <div className="flex flex-col gap-4">
-                    <h3 className="flex items-center gap-2 font-bold text-heading_2 whitespace-nowrap">
-                      {property.adress1}{" "}
-                      {property.adress2 && (
-                        <>
-                          <div className="w-[3px] h-[3px] bg-black rounded"></div>
-                          {property.adress2}
-                        </>
-                      )}
-                    </h3>
+                    <Link to={`/boliger/${property.id}`}>
+                      <h3 className="flex items-center gap-2 font-bold text-heading_2 whitespace-nowrap">
+                        {property.adress1}{" "}
+                        {property.adress2 && (
+                          <>
+                            <div className="w-[3px] h-[3px] bg-black rounded"></div>
+                            {property.adress2}
+                          </>
+                        )}
+                      </h3>
+                    </Link>
                     <p>
                       {property.postalcode} {property.city}
                     </p>
