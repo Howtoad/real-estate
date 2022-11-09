@@ -1,6 +1,6 @@
 import AgentInfo from "../components/AgentInfo";
+import FormInput from "../components/FormInput";
 import useFetchAgent from "../hooks/useFetchAgent";
-import { SlMagnifier } from "react-icons/sl";
 
 const ContactAgentTemplate = () => {
   const { content } = useFetchAgent();
@@ -26,6 +26,36 @@ const ContactAgentTemplate = () => {
             the majority have suffered alteration in some form by injected
             humour.
           </p>
+        </div>
+        <div className="border max-w-[650px] w-full mx-auto mt-8 p-10">
+          <h3 className="text-heading_2 font-medium font-3xl ">
+            Kontakt {content?.name}
+          </h3>
+          <div className="bg-primary max-w-[60px] w-full h-1 mb-8"></div>
+          <form className="grid gap-x-5 gap-y-5">
+            <div className="col-start-1 col-end-2">
+              <FormInput label="Navn" placeholder="Indtast navn" />
+            </div>
+            <div className="col-start-2 col-end-3">
+              <FormInput label="Email" placeholder="Email" />
+            </div>
+            <div className="col-start-1 col-end-3">
+              <FormInput
+                label="Emne"
+                placeholder="Hvad drejer din henvendelse sig om?"
+              />
+            </div>
+            <div className="col-start-1 col-end-3">
+              <h3 className="mb-2">Besked</h3>
+              <textarea
+                className="resize-none w-full h-52 pl-3 pt-3 border-[#D3DEE8] border"
+                placeholder="Skriv din besked her..."
+              ></textarea>
+            </div>
+            <button className="buttonStyle cursor-pointer max-w-[168px]">
+              Send besked
+            </button>
+          </form>
         </div>
       </div>
       <div className="max-w-[350px] w-full">
