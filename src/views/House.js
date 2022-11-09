@@ -6,8 +6,6 @@ import DetailsSection from "../features/PropertyDetails/templates/DetailsSection
 
 const House = () => {
   const { content } = useFetchHome();
-  console.log(content);
-
   return (
     <section className="my-8 mb-20">
       <img

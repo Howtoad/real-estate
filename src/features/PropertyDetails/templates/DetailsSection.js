@@ -1,7 +1,6 @@
 import DetailItem from "../components/DetailItem";
 
 const DetailsSection = ({ houseInfo }) => {
-  console.log(houseInfo?.floorplan.length);
   return (
     <>
       <div className="my-8 mx-auto max-w-[1110px] flex justify-between gap-y-3: ">
