@@ -4,52 +4,7 @@ import { Link } from "react-router-dom";
 import { useUser } from "../context/UserContext";
 
 function PropertyCard({ data: property, showLiked }) {
-  const { user, setUser } = useUser();
-  const [favoriteProperties, setFavoriteProperties] = useState([]);
-
-  useEffect(() => {
-    if (user) {
-      setFavoriteProperties(user.user.homes.map((property) => property.id));
-    }
-  }, [user]);
-
-  const updateFavorites = () => {
-    const newFavoriteProperties = favoriteProperties.includes(property.id)
-      ? favoriteProperties.filter((id) => id !== property.id)
-      : [...favoriteProperties, property.id];
-
-    setFavoriteProperties(newFavoriteProperties);
-
-    fetch(`https://dinmaegler.herokuapp.com/users/${user.user.id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${user.jwt}`,
-      },
-      body: JSON.stringify({
-        homes: newFavoriteProperties,
-      }),
-    })
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          throw new Error(`${response.status} ${response.statusText}`);
-        }
-      })
-      .then((data) => {
-        setUser({
-          ...user,
-          user: {
-            ...user.user,
-            homes: data.homes,
-          },
-        });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+  const { updateFavoriteProperties, isFavoriteProperty } = useUser();
 
   const switchEnergylabelColor = () => {
     switch (property.energylabel) {
@@ -83,14 +38,14 @@ function PropertyCard({ data: property, showLiked }) {
           onClick={(e) => {
             e.preventDefault();
             e.stopPropagation();
-            updateFavorites();
+            updateFavoriteProperties(property.id);
           }}
         >
           <svg
             width="20"
             height="20"
             viewBox="0 0 20 20"
-            fill="none"
+            fill={isFavoriteProperty(property.id) ? "#162A41" : "none"}
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
