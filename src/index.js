@@ -11,6 +11,7 @@ import ContactAgent from "./views/ContactAgent";
 import Login from "./views/Login";
 import { UserProvider } from "./context/UserContext";
 import NotFound from "./views/NotFound";
+import Favorites from "./views/Favorites";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -24,6 +25,7 @@ root.render(
             <Route path="/boliger" element={<PropertiesForSale />} />
             <Route path="/maeglere/:id" element={<ContactAgent />} />
             <Route path="/maeglere" element={<AgentsTemplate />} />
+            <Route path="/favoritter" element={<Favorites />} />
             <Route path="/login" element={<Login />} />
             <Route path="*" element={<NotFound />} />
           </Route>

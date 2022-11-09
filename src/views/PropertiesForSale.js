@@ -4,8 +4,10 @@ import PropertyCard from "../components/PropertyCard";
 import useFetchHomes from "../hooks/useFetchHomes";
 import MultiRangeSlider from "multi-range-slider-react";
 import "../slider.css";
+import { useUser } from "../context/UserContext";
 
 function PropertiesForSale() {
+  const { user } = useUser();
   const { content: properties } = useFetchHomes();
 
   const [minValue, setMinValue] = useState(0);
@@ -101,7 +103,11 @@ function PropertiesForSale() {
 
         <div className="grid md:grid-cols-2 gap-10">
           {filteredProperties?.map((property, index) => (
-            <PropertyCard key={index} data={property} />
+            <PropertyCard
+              key={index}
+              data={property}
+              showLiked={user ? true : false}
+            />
           ))}
           {filteredProperties?.length === 0 && (
             <p>Ingen boliger matcher dine valgte søgekriterier</p>
