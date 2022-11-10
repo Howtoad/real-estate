@@ -25,22 +25,13 @@ const ContactAgentTemplate = () => {
   } = useForm({ mode: "onBlur", resolver: yupResolver(schema) });
 
   const onSubmit = (data) => {
-    console.log(data);
     let formData = {
       name: data.name,
       email: data.email,
       subject: data.subject,
       message: data.message,
     };
-    // const isValid = await schema.isValid(formData);
-
-    // if (isValid) {
-    //   console.log(formData);
-    // } //handle error messages here using yup.resolver ??
-    // else {
-    //   console.log("invalid form data");
-    // }
-    console.log(data);
+    console.log(formData);
   };
   const { content } = useFetchAgent();
   return (
@@ -80,7 +71,7 @@ const ContactAgentTemplate = () => {
                 label="Navn"
                 placeholder="Indtast navn"
                 register={register("name")}
-                error={errors.name?.message}
+                errorMessage={errors.name?.message}
               />
             </div>
             <div className="col-start-2 col-end-3">
@@ -88,7 +79,7 @@ const ContactAgentTemplate = () => {
                 label="Email"
                 placeholder="Email"
                 register={register("email")}
-                error={errors.email?.message}
+                errorMessage={errors.email?.message}
               />
             </div>
             <div className="col-start-1 col-end-3">
@@ -96,7 +87,7 @@ const ContactAgentTemplate = () => {
                 label="Emne"
                 placeholder="Hvad drejer din henvendelse sig om?"
                 register={register("subject")}
-                error={errors.subject?.message}
+                errorMessage={errors.subject?.message}
               />
             </div>
             <div className="col-start-1 col-end-3">
@@ -106,7 +97,9 @@ const ContactAgentTemplate = () => {
                 placeholder="Skriv din besked her..."
                 {...register("message")}
               ></textarea>
-              <p>{errors.message?.message}</p>
+              <p className="-bottom-4 left-0 text-red text-xs">
+                {errors.message?.message}
+              </p>
             </div>
             <button className="buttonStyle cursor-pointer max-w-[168px]">
               Send besked
