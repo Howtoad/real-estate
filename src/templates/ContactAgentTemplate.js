@@ -1,32 +1,46 @@
-import { useForm, useFormState } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import AgentInfo from "../components/AgentInfo";
 import FormInput from "../components/FormInput";
 import useFetchAgent from "../hooks/useFetchAgent";
 import * as yup from "yup";
 
-const schema = yup.object().shape({
-  name: yup.string().required("Navn er påkrævet"),
-  email: yup
-    .string()
-    .email("Din email skal have formen: ditnavn@mail.dk")
-    .required("Email er påkrævet"),
-  subject: yup.string().required("Emne er påkrævet"),
-});
+const schema = yup
+  .object({
+    name: yup.string().required("Navn er påkrævet"),
+    email: yup
+      .string()
+      .email("Din email skal have formen: ditnavn@mail.dk")
+      .required("Email er påkrævet"),
+    subject: yup.string().required("Emne er påkrævet"),
+    message: yup.string().required("Besked er påkrævet"),
+  })
+  .required();
 
 const ContactAgentTemplate = () => {
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({ mode: "onBlur", resolver: yupResolver(schema) });
+
+  const onSubmit = (data) => {
+    console.log(data);
     let formData = {
-      name: event.target[0].value,
-      email: event.target[1].value,
-      subject: event.target[2].value,
-      message: event.target[3].value,
+      name: data.name,
+      email: data.email,
+      subject: data.subject,
+      message: data.message,
     };
-    const isValid = await schema.isValid(formData);
-    if (isValid) {
-      console.log(formData);
-    } //handle error messages here using yup.resolver ??
+    // const isValid = await schema.isValid(formData);
+
+    // if (isValid) {
+    //   console.log(formData);
+    // } //handle error messages here using yup.resolver ??
+    // else {
+    //   console.log("invalid form data");
+    // }
+    console.log(data);
   };
   const { content } = useFetchAgent();
   return (
@@ -57,17 +71,32 @@ const ContactAgentTemplate = () => {
             Kontakt {content?.name}
           </h3>
           <div className="bg-primary max-w-[60px] w-full h-1 mb-8"></div>
-          <form className="grid gap-x-5 gap-y-5" onSubmit={handleSubmit}>
+          <form
+            className="grid gap-x-5 gap-y-5"
+            onSubmit={handleSubmit(onSubmit)}
+          >
             <div className="col-start-1 col-end-2">
-              <FormInput label="Navn" placeholder="Indtast navn" />
+              <FormInput
+                label="Navn"
+                placeholder="Indtast navn"
+                register={register("name")}
+                error={errors.name?.message}
+              />
             </div>
             <div className="col-start-2 col-end-3">
-              <FormInput label="Email" placeholder="Email" />
+              <FormInput
+                label="Email"
+                placeholder="Email"
+                register={register("email")}
+                error={errors.email?.message}
+              />
             </div>
             <div className="col-start-1 col-end-3">
               <FormInput
                 label="Emne"
                 placeholder="Hvad drejer din henvendelse sig om?"
+                register={register("subject")}
+                error={errors.subject?.message}
               />
             </div>
             <div className="col-start-1 col-end-3">
@@ -75,7 +104,9 @@ const ContactAgentTemplate = () => {
               <textarea
                 className="resize-none w-full h-52 pl-3 pt-3 border-[#D3DEE8] border"
                 placeholder="Skriv din besked her..."
+                {...register("message")}
               ></textarea>
+              <p>{errors.message?.message}</p>
             </div>
             <button className="buttonStyle cursor-pointer max-w-[168px]">
               Send besked
