@@ -1,8 +1,33 @@
+import { useForm, useFormState } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
 import AgentInfo from "../components/AgentInfo";
 import FormInput from "../components/FormInput";
 import useFetchAgent from "../hooks/useFetchAgent";
+import * as yup from "yup";
+
+const schema = yup.object().shape({
+  name: yup.string().required("Navn er påkrævet"),
+  email: yup
+    .string()
+    .email("Din email skal have formen: ditnavn@mail.dk")
+    .required("Email er påkrævet"),
+  subject: yup.string().required("Emne er påkrævet"),
+});
 
 const ContactAgentTemplate = () => {
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    let formData = {
+      name: event.target[0].value,
+      email: event.target[1].value,
+      subject: event.target[2].value,
+      message: event.target[3].value,
+    };
+    const isValid = await schema.isValid(formData);
+    if (isValid) {
+      console.log(formData);
+    } //handle error messages here using yup.resolver ??
+  };
   const { content } = useFetchAgent();
   return (
     <div className="flex mt-28 mx-auto max-w-[1110px] w-full">
@@ -32,7 +57,7 @@ const ContactAgentTemplate = () => {
             Kontakt {content?.name}
           </h3>
           <div className="bg-primary max-w-[60px] w-full h-1 mb-8"></div>
-          <form className="grid gap-x-5 gap-y-5">
+          <form className="grid gap-x-5 gap-y-5" onSubmit={handleSubmit}>
             <div className="col-start-1 col-end-2">
               <FormInput label="Navn" placeholder="Indtast navn" />
             </div>
