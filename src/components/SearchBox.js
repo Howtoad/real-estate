@@ -1,6 +1,10 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import Button from "./Button";
 
 const SearchBox = () => {
+  const [query, setQuery] = useState(null);
+
   return (
     <div className="bg-white max-w-[920px] w-full mx-auto">
       <div className="ml-8 pt-8 ">
@@ -15,8 +19,12 @@ const SearchBox = () => {
             className="max-w-[728px] h-12 w-full border mr-2 pl-3"
             type="text"
             placeholder="Søg på fx. glaskeramisk komfur, bryggers, kælder eller lignende"
-          ></input>
-          <Button css="bg-primary max-w-[120px]">Søg</Button>
+            onChange={(e) => setQuery(e.target.value)}
+            value={query}
+          />
+          <Link className="buttonStyle max-w-[120px]" to={`/soeg?q=${query}`}>
+            Søg
+          </Link>
         </div>
       </div>
     </div>
