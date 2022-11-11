@@ -1,4 +1,7 @@
+import { BsFillTelephoneFill } from "react-icons/bs";
 import Heading from "../components/Heading";
+import ContactInfoBox from "../features/ContactUs/components/ContactInfoBox";
+import ContactInfoLine from "../features/ContactUs/components/ContactInfoLine";
 
 const Contact = () => {
   return (
@@ -19,8 +22,17 @@ const Contact = () => {
             spørgsmål.
           </p>
         </div>
-        <div className="col-start-1 col-end-3 row-start-2 row-end-3 p-4 border-[1px] border-solid border-[#D3DEE8] max-w-[635px]"></div>
-        <div className="col-start-3 col-end-4 row-start-2 row-end-3 p-4 border-[1px] border-solid border-[#D3DEE8]"></div>
+        <div className="col-start-1 col-end-3 row-start-2 row-end-3 p-6 border-[1px] border-solid border-[#D3DEE8] max-w-[635px]"></div>
+        <div className="col-start-3 col-end-4 row-start-2 row-end-3 p-6 border-[1px] border-solid border-[#D3DEE8]">
+          <ContactInfoBox>
+            <div className="bg-primary max-w-fit max-h-fit p-3 rounded-full">
+              <BsFillTelephoneFill className=" text-white" size="24" />
+            </div>
+            <p className="text-heading">Ring til os</p>
+            <p className="text-paragraph">++45 7070 4000</p>
+          </ContactInfoBox>
+          <ContactInfoLine />
+        </div>
       </section>
     </>
   );
