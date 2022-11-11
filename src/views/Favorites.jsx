@@ -9,7 +9,7 @@ function Favorites() {
   const [query, setQuery] = useState(null);
 
   useEffect(() => {
-    if (!user.user.homes) {
+    if (!user) {
       return;
     }
 
@@ -23,10 +23,12 @@ function Favorites() {
             : property.city.toLowerCase().includes(query.toLowerCase())
             ? true
             : property.adress2?.toLowerCase().includes(query.toLowerCase())
+            ? true
+            : property.type.toLowerCase().includes(query.toLowerCase())
           : true
       )
     );
-  }, [user.user.homes, query]);
+  }, [user, query]);
 
   const switchEnergylabelColor = (energylabel) => {
     switch (energylabel) {
