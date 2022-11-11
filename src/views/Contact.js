@@ -1,13 +1,12 @@
-import { BsFillTelephoneFill } from "react-icons/bs";
 import Heading from "../components/Heading";
-import ContactInfoBox from "../features/ContactUs/components/ContactInfoBox";
-import ContactInfoLine from "../features/ContactUs/components/ContactInfoLine";
+import ContactForm from "../features/ContactUs/templates/ContactForm";
+import ContactInfo from "../features/ContactUs/templates/ContactInfo";
 
 const Contact = () => {
   return (
     <>
       <Heading title="Kontakt os" />
-      <section className="grid max-w-[1110px] mx-auto my-[120px]">
+      <section className="grid max-w-[1110px] mx-auto my-[120px] gap-x-8">
         <div className="col-start-1 col-end-4 row-start-1 row-end-2">
           <p className="text-3xl text-heading_2 my-4">
             Vi sidder klar til at besvare dine spørgsmål
@@ -22,17 +21,8 @@ const Contact = () => {
             spørgsmål.
           </p>
         </div>
-        <div className="col-start-1 col-end-3 row-start-2 row-end-3 p-6 border-[1px] border-solid border-[#D3DEE8] max-w-[635px]"></div>
-        <div className="col-start-3 col-end-4 row-start-2 row-end-3 p-6 border-[1px] border-solid border-[#D3DEE8]">
-          <ContactInfoBox>
-            <div className="bg-primary max-w-fit max-h-fit p-3 rounded-full">
-              <BsFillTelephoneFill className=" text-white" size="24" />
-            </div>
-            <p className="text-heading">Ring til os</p>
-            <p className="text-paragraph">++45 7070 4000</p>
-          </ContactInfoBox>
-          <ContactInfoLine />
-        </div>
+        <ContactForm />
+        <ContactInfo />
       </section>
     </>
   );
