@@ -1,10 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { HiOutlineSearch } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import { useUser } from "../context/UserContext";
 
 function Favorites() {
   const { user, updateFavoriteProperties } = useUser();
+  const [filteredProperties, setFilteredProperties] = useState([]);
+  const [query, setQuery] = useState(null);
+
+  useEffect(() => {
+    if (!user.user.homes) {
+      return;
+    }
+
+    setFilteredProperties(
+      user.user.homes.filter((property) =>
+        query
+          ? property.adress1.toLowerCase().includes(query.toLowerCase())
+            ? true
+            : property.postalcode.toString().includes(query)
+            ? true
+            : property.city.toLowerCase().includes(query.toLowerCase())
+            ? true
+            : property.adress2?.toLowerCase().includes(query.toLowerCase())
+          : true
+      )
+    );
+  }, [user.user.homes, query]);
 
   const switchEnergylabelColor = (energylabel) => {
     switch (energylabel) {
@@ -32,10 +54,19 @@ function Favorites() {
                 className="outline-none "
                 type="text"
                 placeholder="Søg i favoritter"
+                value={query}
+                onChange={(e) => {
+                  setQuery(e.target.value);
+                  setFilteredProperties(
+                    user.user.homes.filter((property) =>
+                      property.address.toLowerCase().includes(query)
+                    )
+                  );
+                }}
               />
             </div>
             <div className="flex flex-col gap-10 border-t border-[#D3DEE8] py-10">
-              {user.user.homes.map((property) => (
+              {filteredProperties.map((property) => (
                 <div className="grid grid-cols-[250px_1fr_200px_150px] gap-6 border border-paragraph_3 rounded-md p-6 shadow">
                   <img
                     className="max-h-[150px] w-full"
