@@ -4,6 +4,7 @@ import AgentInfo from "../components/AgentInfo";
 import FormInput from "../components/FormInput";
 import useFetchAgent from "../hooks/useFetchAgent";
 import * as yup from "yup";
+import { HiMagnifyingGlass } from "react-icons/hi2";
 
 const schema = yup
   .object({
@@ -113,11 +114,14 @@ const ContactAgentTemplate = () => {
             Search Property
           </h3>
           <hr className="mb-6"></hr>
-          <input
-            type="text"
-            placeholder="Search"
-            className="w-full h-10"
-          ></input>
+          <div className="relative flex">
+            <input
+              type="text"
+              placeholder="Search"
+              className="w-full h-10 pl-8 border text-paragraph_2 placeholder-paragraph_2"
+            ></input>
+            <HiMagnifyingGlass className="absolute self-center ml-2" />
+          </div>
         </div>
         <div className="bg-primary max-w-[350px] px-15 text-white text-center">
           <h3 className="text-3xl font-medium pt-[92px] max-w-[220px] mx-auto">
