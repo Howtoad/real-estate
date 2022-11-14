@@ -5,6 +5,8 @@ import FormInput from "../components/FormInput";
 import useFetchAgent from "../hooks/useFetchAgent";
 import * as yup from "yup";
 import { HiMagnifyingGlass } from "react-icons/hi2";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const schema = yup
   .object({
@@ -19,6 +21,9 @@ const schema = yup
   .required();
 
 const ContactAgentTemplate = () => {
+  const navigate = useNavigate();
+  const [query, setQuery] = useState(null);
+
   const {
     register,
     handleSubmit,
@@ -36,7 +41,7 @@ const ContactAgentTemplate = () => {
   };
   const { content } = useFetchAgent();
   return (
-    <div className="flex mt-28 mx-auto max-w-[1110px] w-full">
+    <div className="flex py-20 mx-auto max-w-[1110px] w-full">
       <div className="max-w-[730px] border mr-7">
         <div>
           <AgentInfo agent={content} />
@@ -58,7 +63,7 @@ const ContactAgentTemplate = () => {
             humour.
           </p>
         </div>
-        <div className="border max-w-[650px] w-full mx-auto mt-8 p-10">
+        <div className="border max-w-[650px] w-full mx-auto my-8 p-10">
           <h3 className="text-heading_2 font-medium text-xl pb-3">
             Kontakt {content?.name}
           </h3>
@@ -111,15 +116,22 @@ const ContactAgentTemplate = () => {
       <div className="max-w-[350px] w-full">
         <div className="max-w-[350px] p-7 bg-background_fail mb-5">
           <h3 className="text-heading_2 font-medium text-2xl mb-4">
-            Search Property
+            Søg efter bolig
           </h3>
           <hr className="mb-6"></hr>
           <div className="relative flex">
             <input
               type="text"
-              placeholder="Search"
-              className="w-full h-10 pl-8 border text-paragraph_2 placeholder-paragraph_2"
-            ></input>
+              placeholder="Søg på adresse, by eller ejendomstype"
+              className="w-full h-10 pl-8 border text-paragraph_2 placeholder-paragraph_2 placeholder:text-sm"
+              onChange={(e) => setQuery(e.target.value)}
+              value={query}
+              onKeyPress={(event) => {
+                if (event.key === "Enter") {
+                  navigate(`/soeg?q=${query}`);
+                }
+              }}
+            />
             <HiMagnifyingGlass className="absolute self-center ml-2" />
           </div>
         </div>
