@@ -5,6 +5,8 @@ import FormInput from "../components/FormInput";
 import useFetchAgent from "../hooks/useFetchAgent";
 import * as yup from "yup";
 import { HiMagnifyingGlass } from "react-icons/hi2";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const schema = yup
   .object({
@@ -19,6 +21,9 @@ const schema = yup
   .required();
 
 const ContactAgentTemplate = () => {
+  const navigate = useNavigate();
+  const [query, setQuery] = useState(null);
+
   const {
     register,
     handleSubmit,
@@ -119,7 +124,14 @@ const ContactAgentTemplate = () => {
               type="text"
               placeholder="Search"
               className="w-full h-10 pl-8 border text-paragraph_2 placeholder-paragraph_2"
-            ></input>
+              onChange={(e) => setQuery(e.target.value)}
+              value={query}
+              onKeyPress={(event) => {
+                if (event.key === "Enter") {
+                  navigate(`/soeg?q=${query}`);
+                }
+              }}
+            />
             <HiMagnifyingGlass className="absolute self-center ml-2" />
           </div>
         </div>
