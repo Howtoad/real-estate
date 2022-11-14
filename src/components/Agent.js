@@ -17,7 +17,7 @@ const Agent = ({ data: agent }) => {
               <GrLinkedinOption />
             </Link>
           </div>
-        </div>
+        </div>  
       </Link>
     </div>
   );
