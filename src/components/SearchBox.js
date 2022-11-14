@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Button from "./Button";
 
 const SearchBox = () => {
   const [query, setQuery] = useState(null);
+  const navigate = useNavigate();
 
   return (
     <div className="bg-white max-w-[920px] w-full mx-auto">
@@ -21,6 +22,11 @@ const SearchBox = () => {
             placeholder="Søg på fx. glaskeramisk komfur, bryggers, kælder eller lignende"
             onChange={(e) => setQuery(e.target.value)}
             value={query}
+            onKeyPress={(event) => {
+              if (event.key === "Enter") {
+                navigate(`/soeg?q=${query}`);
+              }
+            }}
           />
           <Link className="buttonStyle max-w-[120px]" to={`/soeg?q=${query}`}>
             Søg
