@@ -13,6 +13,7 @@ import { UserProvider } from "./context/UserContext";
 import NotFound from "./views/NotFound";
 import Favorites from "./views/Favorites";
 import Contact from "./views/Contact";
+import Search from "./views/Search";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -29,6 +30,7 @@ root.render(
             <Route path="/favoritter" element={<Favorites />} />
             <Route path="/login" element={<Login />} />
             <Route path="/kontakt" element={<Contact />} />
+            <Route path="/soeg" element={<Search />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
