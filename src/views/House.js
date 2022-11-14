@@ -15,7 +15,7 @@ const House = () => {
       />
       <DetailsHeader houseInfo={content} />
       <DetailsSection houseInfo={content} />
-      <div className="flex max-w-fit gap-8 mx-auto justify-between">
+      <div className="flex max-w-[1110px] gap-8 mx-auto justify-between ">
         <DetailsDescription houseInfo={content} />
         <DetailsAgent houseInfo={content} />
       </div>
