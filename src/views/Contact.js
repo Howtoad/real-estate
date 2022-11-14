@@ -24,6 +24,7 @@ const Contact = () => {
         <ContactForm />
         <ContactInfo />
       </section>
+      <img src="images/real-estate/contact_map.png" alt="Kort til butik" />
     </>
   );
 };
