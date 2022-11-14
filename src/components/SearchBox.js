@@ -19,7 +19,7 @@ const SearchBox = () => {
           <input
             className="max-w-[728px] h-12 w-full border mr-2 pl-3"
             type="text"
-            placeholder="Søg på fx. glaskeramisk komfur, bryggers, kælder eller lignende"
+            placeholder="Søg på adresse, postnummer, by eller ejendomstype"
             onChange={(e) => setQuery(e.target.value)}
             value={query}
             onKeyPress={(event) => {

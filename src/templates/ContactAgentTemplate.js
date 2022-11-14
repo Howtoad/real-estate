@@ -116,14 +116,14 @@ const ContactAgentTemplate = () => {
       <div className="max-w-[350px] w-full">
         <div className="max-w-[350px] p-7 bg-background_fail mb-5">
           <h3 className="text-heading_2 font-medium text-2xl mb-4">
-            Search Property
+            Søg efter bolig
           </h3>
           <hr className="mb-6"></hr>
           <div className="relative flex">
             <input
               type="text"
-              placeholder="Search"
-              className="w-full h-10 pl-8 border text-paragraph_2 placeholder-paragraph_2"
+              placeholder="Søg på adresse, by eller ejendomstype"
+              className="w-full h-10 pl-8 border text-paragraph_2 placeholder-paragraph_2 placeholder:text-sm"
               onChange={(e) => setQuery(e.target.value)}
               value={query}
               onKeyPress={(event) => {
