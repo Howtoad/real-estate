@@ -41,7 +41,7 @@ const ContactAgentTemplate = () => {
   };
   const { content } = useFetchAgent();
   return (
-    <div className="flex mt-28 mx-auto max-w-[1110px] w-full">
+    <div className="flex py-20 mx-auto max-w-[1110px] w-full">
       <div className="max-w-[730px] border mr-7">
         <div>
           <AgentInfo agent={content} />
