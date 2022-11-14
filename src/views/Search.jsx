@@ -42,7 +42,7 @@ function Search() {
         <label className="flex gap-2 items-center">
           <HiOutlineSearch />
           <input
-            className="outline-none focus text-paragraph"
+            className="outline-none focus text-paragraph w-full"
             type="text"
             placeholder="Søg efter bolig"
             onChange={(e) => setQuery(e.target.value)}
