@@ -15,6 +15,7 @@ module.exports = {
         heading_2: "#2A2C30",
         mask: "#0073E1",
         mask_2: "#33485c",
+        mask_3: "#455463",
         background: "#F8F8FB",
         background_2: "#F9FCFF",
         background_3: "#25517A",
