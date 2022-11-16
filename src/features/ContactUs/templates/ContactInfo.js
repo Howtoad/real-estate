@@ -11,7 +11,7 @@ const ContactInfo = () => {
           <BsFillTelephoneFill className=" text-white" size="24" />
         </div>
         <p className="text-heading font-medium text-xl">Ring til os</p>
-        <p className="text-paragraph">++45 7070 4000</p>
+        <p className="text-paragraph text-lg">++45 7070 4000</p>
       </ContactInfoBox>
       <ContactInfoLine />
       <ContactInfoBox>
@@ -19,7 +19,7 @@ const ContactInfo = () => {
           <FaPaperPlane className="text-white" size="24" />
         </div>
         <p className="text-heading font-medium text-xl">send en mail</p>
-        <p className="text-paragraph">4000@dinmaegler.dk</p>
+        <p className="text-paragraph text-lg">4000@dinmaegler.dk</p>
       </ContactInfoBox>
       <ContactInfoLine />
       <ContactInfoBox>
@@ -28,8 +28,8 @@ const ContactInfo = () => {
         </div>
         <p className="text-heading font-medium text-xl">Besøg butikken</p>
         <div className="flex flex-col items-center">
-          <p className="text-paragraph">Stændertorvet 78,</p>
-          <p className="text-paragraph">4000 Roskilde</p>
+          <p className="text-paragraph text-lg">Stændertorvet 78,</p>
+          <p className="text-paragraph text-lg">4000 Roskilde</p>
         </div>
       </ContactInfoBox>
     </div>
