@@ -13,6 +13,7 @@ import { UserProvider } from "./context/UserContext";
 import NotFound from "./views/NotFound";
 import Favorites from "./views/Favorites";
 import Search from "./views/Search";
+import CreateUser from "./views/CreateUser";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -28,6 +29,7 @@ root.render(
             <Route path="/maeglere" element={<AgentsTemplate />} />
             <Route path="/favoritter" element={<Favorites />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/opret" element={<CreateUser />} />
             <Route path="/soeg" element={<Search />} />
             <Route path="*" element={<NotFound />} />
           </Route>
