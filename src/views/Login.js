@@ -97,7 +97,7 @@ function Login() {
         </div>
         <p className="text-center">
           Har du ikke en konto?{" "}
-          <Link className="text-[#2F80ED]" to="/registre">
+          <Link className="text-[#2F80ED]" to="/opret">
             Opret bruger.
           </Link>
         </p>
