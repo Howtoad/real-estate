@@ -4,7 +4,7 @@ import SelectedProperties from "../templates/SelectedProperties";
 import SalesAppSection from "../templates/SalesAppSection";
 import StatsSectionTemplate from "../templates/StatsSectionTemplate";
 import { useUser } from "../context/UserContext";
-
+import Newsletter from "../components/Newsletter";
 
 const Home = () => {
   const { user } = useUser();
@@ -15,8 +15,9 @@ const Home = () => {
       <HeroImg />
       <StatsSectionTemplate />
       <SelectedProperties />
-      <SalesAppSection />
+      <Newsletter />
       <FrontPageAgentsTemplate />
+      <SalesAppSection />
     </>
   );
 };
