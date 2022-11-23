@@ -32,8 +32,8 @@ function CreateUser() {
   return (
     <>
       <Heading title="Opret bruger" />
-      <div className="w-fit mx-auto shadow my-20 py-10 px-20">
-        <h2 className="text-center font-bold text-xl text-heading_2 px-10">
+      <div className="w-full mx-auto shadow my-20 py-10 max-w-[920px] px-[190px]">
+        <h2 className="text-center font-bold text-3xl text-heading_2 px-10">
           Opret bruger hos Din Mægler
         </h2>
         <form
