@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const useFetchAddSub = () => {
+const useFetchAddSub = ({ userData }) => {
   const [content, setContent] = useState();
 
   useEffect(() => {
@@ -10,7 +10,7 @@ const useFetchAddSub = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        email: "testlol@email.com",
+        email: userData.email,
       }),
     })
       .then((response) => response.json())

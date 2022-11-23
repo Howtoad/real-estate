@@ -1,11 +1,13 @@
 import { IoImageOutline, IoLocationOutline } from "react-icons/io5";
-import { AiOutlineHeart } from "react-icons/ai";
+import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { RiStackLine } from "react-icons/ri";
 import ModalWindow from "../components/ModalWindow";
 import { useState } from "react";
 import Gallery from "../components/Gallery";
+import { useUser } from "../../../context/UserContext";
 
 const DetailsHeader = ({ houseInfo }) => {
+  const { user, updateFavoriteProperties, isFavoriteProperty } = useUser();
   const [showModalWindow, setShowModalWindow] = useState();
   const [modalContent, setModalContent] = useState();
 
@@ -62,7 +64,21 @@ const DetailsHeader = ({ houseInfo }) => {
               setModalContent(map);
             }}
           />
-          <AiOutlineHeart className={iconCss + " text-background"} />
+          {user && (
+            <div
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                updateFavoriteProperties(houseInfo?.id);
+              }}
+            >
+              {isFavoriteProperty(houseInfo?.id) ? (
+                <AiFillHeart className={iconCss + " text-[#162A41]"} />
+              ) : (
+                <AiOutlineHeart className={iconCss + " text-background"} />
+              )}
+            </div>
+          )}
         </div>
       </ModalWindow>
       <div className="mx-auto mt-[39px] w-full max-w-[1110px] flex justify-between border-solid border-b-2">
@@ -96,7 +112,21 @@ const DetailsHeader = ({ houseInfo }) => {
               setModalContent(map);
             }}
           />
-          <AiOutlineHeart className={iconCss} />
+          {user && (
+            <div
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                updateFavoriteProperties(houseInfo?.id);
+              }}
+            >
+              {isFavoriteProperty(houseInfo?.id) ? (
+                <AiFillHeart className={iconCss + " text-[#162A41]"} />
+              ) : (
+                <AiOutlineHeart className={iconCss} />
+              )}
+            </div>
+          )}
         </div>
         <h3 className="font-bold text-2xl text-primary">
           Kr. &nbsp;

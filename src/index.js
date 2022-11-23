@@ -12,6 +12,7 @@ import Login from "./views/Login";
 import { UserProvider } from "./context/UserContext";
 import NotFound from "./views/NotFound";
 import Favorites from "./views/Favorites";
+import Contact from "./views/Contact";
 import Search from "./views/Search";
 import CreateUser from "./views/CreateUser";
 
@@ -30,6 +31,7 @@ root.render(
             <Route path="/favoritter" element={<Favorites />} />
             <Route path="/login" element={<Login />} />
             <Route path="/opret" element={<CreateUser />} />
+            <Route path="/kontakt" element={<Contact />} />
             <Route path="/soeg" element={<Search />} />
             <Route path="*" element={<NotFound />} />
           </Route>
