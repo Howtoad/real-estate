@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import { HiOutlineSearch } from "react-icons/hi";
 import { useSearchParams } from "react-router-dom";
 import PropertyCard from "../components/PropertyCard";
-import { useUser } from "../context/UserContext";
 import useFetchHomes from "../hooks/useFetchHomes";
 
 function Search() {
@@ -14,6 +13,7 @@ function Search() {
 
   useEffect(() => {
     setQuery(searchParams.get("q"));
+    // eslint-disable-next-line
   }, []);
 
   useEffect(() => {
@@ -34,7 +34,7 @@ function Search() {
           : true
       )
     );
-  }, [properties, query]);
+  }, [properties, query, setSearchParams]);
 
   return (
     <div className=" max-w-[1110px] mx-auto py-20 flex flex-col gap-10">

@@ -58,22 +58,22 @@ const ModalWindow = ({
     hideSequence();
   }
 
-  const escapeDown = useCallback((event) => {
-    if (event.keyCode === 27) {
-      setShowModalWindow(false);
-    }
-  }, []);
+  const escapeDown = useCallback(
+    (event) => {
+      if (event.keyCode === 27) {
+        setShowModalWindow(false);
+      }
+    },
+    [setShowModalWindow]
+  );
 
   useEffect(() => {
     document.addEventListener("keydown", escapeDown, false);
     return () => {
       document.removeEventListener("keydown", escapeDown, false);
     };
+    // eslint-disable-next-line
   }, []);
-
-  const styles = {
-    button: "max-w-max max-h-max bg-gray-500 rounded m-1 p-1 text-xl",
-  };
 
   return (
     <>

@@ -22,6 +22,7 @@ const DetailsHeader = ({ houseInfo }) => {
   const map = (
     <>
       <iframe
+        title={"google maps"}
         src={
           "https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d9010.26635989766!2d" +
           houseInfo?.long +
