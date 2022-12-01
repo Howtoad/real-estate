@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Button from "./Button";
 
 const SearchBox = () => {
   const [query, setQuery] = useState(null);
