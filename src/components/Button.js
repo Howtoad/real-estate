@@ -3,10 +3,7 @@
 //Takes in a handleClick function to fit your needs for a function.
 const Button = ({ children, css, handleClick }) => {
   return (
-    <button
-      onClick={handleClick}
-      className={css + " " + "h-12 text-white w-full"}
-    >
+    <button onClick={handleClick} className={css + " h-12 text-white w-full"}>
       {children}
     </button>
   );

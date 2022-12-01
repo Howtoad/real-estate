@@ -16,6 +16,7 @@ const useFetchAgent = () => {
       .then((response) => response.json())
       .then((response) => setContent(response))
       .catch((err) => console.error(err));
+    // eslint-disable-next-line
   }, []);
 
   return { content };

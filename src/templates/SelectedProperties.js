@@ -13,7 +13,7 @@ function SelectedProperties() {
         <div className="grid md:grid-cols-2 gap-10 py-10">
           {properties?.map((property, index) => {
             if (index > 3) {
-              return;
+              return null;
             }
 
             return <PropertyCard key={index} data={property} />;

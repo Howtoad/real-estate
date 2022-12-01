@@ -27,6 +27,7 @@ function PropertiesForSale() {
       minPrice: minValue,
       maxPrice: maxValue,
     });
+    // eslint-disable-next-line
   }, [minValue, maxValue]);
 
   useEffect(() => {

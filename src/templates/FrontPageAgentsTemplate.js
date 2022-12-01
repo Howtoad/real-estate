@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import Agent from "../components/Agent";
 import useFetchAgents from "../hooks/useFetchAgents";
-import { useEffect, useState } from "react";
 
 const FrontPageAgentsTemplate = () => {
   const { content: agents } = useFetchAgents();
@@ -20,7 +19,7 @@ const FrontPageAgentsTemplate = () => {
       <div className="grid max-w-[1140px] grid-cols-3 mx-auto gap-y-12">
         {agents?.map((agent, index) => {
           if (index > 2) {
-            return;
+            return null;
           }
           return <Agent key={index} data={agent} />;
         })}
